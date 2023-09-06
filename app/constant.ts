@@ -101,6 +101,11 @@ export const DEFAULT_MODELS = [
     company: "阿里通义千问",
   },
   {
+    name: "AzureOpenAI",
+    available: true,
+    company: "Azure OpenAI",
+  },
+  {
     name: "claude2",
     available: true,
     company: "Anthropic Claude",
