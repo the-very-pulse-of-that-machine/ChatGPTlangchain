@@ -282,7 +282,7 @@ const cn = {
   },
   Store: {
     DefaultTopic: "新的聊天",
-    BotHello: "有什么可以帮你的吗",
+    BotHello: "你好，我是您的 AI 助手，你可以到设置里更换 API Key 来实现模型切换，具体请查看[使用说明](https://sjnh.me:8888)。另外，您与 AI 沟通的内容是您的私密内容，即使是网站维护者也无法查看到您的聊天内容，但是请您与 AI 沟通过程中遵守法律法规！",
     Error: "出错了，稍后重试吧",
     Prompt: {
       History: (content: string) => "这是历史聊天总结作为前情提要：" + content,
