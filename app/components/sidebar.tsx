@@ -121,7 +121,7 @@ export function SideBar(props: { className?: string }) {
           兜兜风 AI 系统
         </div>
         <div className={styles["sidebar-sub-title"]}>
-          世界正在被改变💖 | 未来 • 已来
+          世界正在被改变 💖 | 未来 • 已来
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
