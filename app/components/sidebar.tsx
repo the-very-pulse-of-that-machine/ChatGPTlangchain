@@ -118,7 +118,7 @@ export function SideBar(props: { className?: string }) {
     >
       <div className={styles["sidebar-header"]} data-tauri-drag-region>
         <div className={styles["sidebar-title"]} data-tauri-drag-region>
-          兜兜风 AI 系统
+          您的私人 AI
         </div>
         <div className={styles["sidebar-sub-title"]}>
           世界正在被改变 💖 | 未来 • 已来
