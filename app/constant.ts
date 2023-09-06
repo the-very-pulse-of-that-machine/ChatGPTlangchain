@@ -73,6 +73,37 @@ export const DEFAULT_MODELS = [
   {
     name: "gpt-4",
     available: true,
+    company: "ChatGPT 4.0",
+  },
+    {
+    name: "gpt-3.5-turbo",
+    available: true,
+    company: "ChatGPT 3.5",
+  },
+  {
+    name: "SparkDesk",
+    available: true,
+    company: "讯飞星火认知",
+  },
+  {
+    name: "qwen-v1",
+    available: true,
+    company: "阿里通义千问",
+  },
+  {
+    name: "qwen-plus-v1",
+    available: true,
+    company: "阿里通义千问",
+  },
+  {
+    name: "text-embedding-v1",
+    available: true,
+    company: "阿里通义千问",
+  },
+  {
+    name: "claude2",
+    available: true,
+    company: "Anthropic Claude",
   },
   {
     name: "gpt-4-0314",
@@ -92,10 +123,6 @@ export const DEFAULT_MODELS = [
   },
   {
     name: "gpt-4-32k-0613",
-    available: true,
-  },
-  {
-    name: "gpt-3.5-turbo",
     available: true,
   },
   {
