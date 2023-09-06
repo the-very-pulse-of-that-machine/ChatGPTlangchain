@@ -6,7 +6,7 @@ import { getClientConfig } from "./config/client";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "兜兜风 AI",
+  title: "兜兜风 AI 系统",
   description: "私人 AI 系统，仅自用，不开放。",
   viewport: {
     width: "device-width",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: dark)", color: "#151515" },
   ],
   appleWebApp: {
-    title: "兜兜风 AI",
+    title: "兜兜风 AI 系统",
     statusBarStyle: "default",
   },
 };
