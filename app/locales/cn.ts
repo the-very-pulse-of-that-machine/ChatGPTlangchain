@@ -8,7 +8,7 @@ const cn = {
   Error: {
     Unauthorized: isApp
       ? "检测到无效 API Key，请前往[设置](/#/settings)页检查 API Key 是否配置正确。"
-      : "访问密码不正确或为空，请前往[登录](/#/auth)页输入正确的访问密码，或者在[设置](/#/settings)页填入你自己的 OpenAI API Key。",
+      : "你好，我是您的 AI 助手，你可以到[设置](/#/settings)里更换 API Key 来实现模型切换，更多帮助请查看[使用说明](https://sjnh.me:8888)。另外，您与 AI 沟通的内容是您的个人隐私，即使是网站维护者也无法查看到您的聊天内容，但是请您与 AI 沟通过程中遵守法律法规！",
   },
   Auth: {
     Title: "需要密码",
@@ -282,7 +282,7 @@ const cn = {
   },
   Store: {
     DefaultTopic: "新的聊天",
-    BotHello: "你好，我是您的 AI 助手，你可以到设置里更换 API Key 来实现模型切换，具体请查看[使用说明](https://sjnh.me:8888)。另外，您与 AI 沟通的内容是您的私密内容，即使是网站维护者也无法查看到您的聊天内容，但是请您与 AI 沟通过程中遵守法律法规！",
+    BotHello: "你好，我是您的 AI 助手，你可以到[设置](/#/settings)里更换 API Key 来实现模型切换，更多帮助请查看[使用说明](https://sjnh.me:8888)。另外，您与 AI 沟通的内容是您的个人隐私，即使是网站维护者也无法查看到您的聊天内容，但是请您与 AI 沟通过程中遵守法律法规！",
     Error: "出错了，稍后重试吧",
     Prompt: {
       History: (content: string) => "这是历史聊天总结作为前情提要：" + content,
