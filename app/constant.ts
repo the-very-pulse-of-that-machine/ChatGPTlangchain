@@ -75,11 +75,7 @@ export const DEFAULT_MODELS = [
     available: true,
     company: "ChatGPT 3.5",
   },
-  {
-    name: "gpt-4",
-    available: true,
-    company: "ChatGPT 4.0",
-  },
+  
   {
     name: "SparkDesk",
     available: true,
