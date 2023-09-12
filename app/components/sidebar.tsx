@@ -11,6 +11,8 @@ import CloseIcon from "../icons/close.svg";
 import MaskIcon from "../icons/mask.svg";
 import PluginIcon from "../icons/plugin.svg";
 import DragIcon from "../icons/drag.svg";
+import EditIcon from "../icons/edit.svg";
+import uploadIcon from "../icons/upload.svg";
 
 import Locale from "../locales";
 
@@ -165,13 +167,13 @@ export function SideBar(props: { className?: string }) {
             </Link>
           </div>
           <div className={styles["sidebar-action"]}>
-            <a href={'https://www.amz123.com/ai'} target="_blank">
-              <IconButton icon={<PluginIcon />} shadow />
+            <a href={'https://blinkdl.github.io/AI-Writer/'} target="_blank">
+              <IconButton icon={<EditIcon />} shadow />
             </a>
           </div>
           <div className={styles["sidebar-action"]}>
-            <a href={'https://www.amz123.com/ai'} target="_blank">
-              <IconButton icon={<PluginIcon />} shadow />
+            <a href={'https://web.chatboxai.app/'} target="_blank">
+              <IconButton icon={<uploadIcon />} shadow />
             </a>
           </div>
           <div className={styles["sidebar-action"]}>
