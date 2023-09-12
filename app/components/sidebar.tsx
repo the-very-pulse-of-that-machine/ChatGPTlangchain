@@ -172,7 +172,7 @@ export function SideBar(props: { className?: string }) {
             </a>
           </div>
           <div className={styles["sidebar-action"]}>
-            <a href={'https://web.chatboxai.app/'} target="_blank" title="codeinterpreter">
+            <a href={'https://web.chatboxai.app/'} target="_blank" title="codeinterpreter(用法：setting中代理填https://chat.chatify.me，apikey填sk-ed7a02c0991f2a957aea4a474e61e5e37d0adcc7c1f0c40e)">
               <IconButton icon={<DragIcon/>} shadow />
             </a>
           </div>
