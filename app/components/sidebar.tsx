@@ -167,7 +167,7 @@ export function SideBar(props: { className?: string }) {
             </Link>
           </div>
           <div className={styles["sidebar-action"]}>
-            <a href={'https://blinkdl.github.io/AI-Writer/'} target="_blank" title="ai网文写作">
+            <a href={'https://modelscope.cn/studios/BlinkDL/RWKV-CHN/summary/'} target="_blank" title="ai网文写作">
               <IconButton icon={<EditIcon />} shadow />
             </a>
           </div>
