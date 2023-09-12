@@ -12,7 +12,7 @@ import MaskIcon from "../icons/mask.svg";
 import PluginIcon from "../icons/plugin.svg";
 import DragIcon from "../icons/drag.svg";
 import EditIcon from "../icons/edit.svg";
-import uploadIcon from "../icons/upload.svg";
+
 
 import Locale from "../locales";
 
@@ -173,7 +173,7 @@ export function SideBar(props: { className?: string }) {
           </div>
           <div className={styles["sidebar-action"]}>
             <a href={'https://web.chatboxai.app/'} target="_blank">
-              <IconButton icon={<uploadIcon />} shadow />
+              <IconButton icon={<DragIcon/>} shadow />
             </a>
           </div>
           <div className={styles["sidebar-action"]}>
