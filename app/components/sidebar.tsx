@@ -167,17 +167,17 @@ export function SideBar(props: { className?: string }) {
             </Link>
           </div>
           <div className={styles["sidebar-action"]}>
-            <a href={'https://blinkdl.github.io/AI-Writer/'} target="_blank">
+            <a href={'https://blinkdl.github.io/AI-Writer/'} target="_blank" title="ai网文写作">
               <IconButton icon={<EditIcon />} shadow />
             </a>
           </div>
           <div className={styles["sidebar-action"]}>
-            <a href={'https://web.chatboxai.app/'} target="_blank">
+            <a href={'https://web.chatboxai.app/'} target="_blank" title="codeinterpreter">
               <IconButton icon={<DragIcon/>} shadow />
             </a>
           </div>
           <div className={styles["sidebar-action"]}>
-            <a href={'https://www.amz123.com/ai'} target="_blank">
+            <a href={'https://www.amz123.com/ai'} target="_blank" title="人工智能大全">
               <IconButton icon={<PluginIcon />} shadow />
             </a>
           </div>
