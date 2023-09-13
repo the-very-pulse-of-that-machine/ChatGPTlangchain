@@ -535,7 +535,7 @@ export const CN_MASKS: BuiltinMask[] = [
         id: "CI-1",
         role: "system",
         content:
-          "/upload",
+          "输入/upload命令以唤起文件上传",
         date: "",
       },
     ],
