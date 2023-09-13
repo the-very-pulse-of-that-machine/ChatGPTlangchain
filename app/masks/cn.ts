@@ -495,7 +495,7 @@ export const CN_MASKS: BuiltinMask[] = [
     createdAt: 1688899480539,
   },
   {
-    avatar: "1F3EB",
+    avatar: "1f3eB",
     name: "文化人",
     context: [
       {
@@ -521,14 +521,14 @@ export const CN_MASKS: BuiltinMask[] = [
     createdAt: 1688899480540,
   },
   {
-    avatar: "1F3EB",
+    avatar: "1f441",
     name: "Code Interpreter",
     context: [
       {
         id: "CI-0",
         role: "system",
         content:
-          "以下文本为注释，不需做出反应：本mask实现openai官方Code Interpreter部分功能，请先点击[设置参数](/#/settings)\n将接口地址设置为https://chat.chatify.me \nAPI key设置为sk-ed7a02c0991f2a957aea4a474e61e5e37d0adcc7c1f0c40e",
+          "本mask实现openai官方Code Interpreter部分功能，请先点击[设置参数](/#/settings)将接口地址设置为https://chat.chatify.me API key设置为sk-ed7a02c0991f2a957aea4a474e61e5e37d0adcc7c1f0c40e",
         date: "",
       },
       {
