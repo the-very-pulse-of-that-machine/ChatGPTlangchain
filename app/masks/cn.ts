@@ -520,4 +520,37 @@ export const CN_MASKS: BuiltinMask[] = [
     builtin: true,
     createdAt: 1688899480540,
   },
+  {
+    avatar: "1F3EB",
+    name: "Code Interpreter",
+    context: [
+      {
+        id: "CI-0",
+        role: "system",
+        content:
+          "以下文本为注释，不需做出反应：本mask实现openai官方Code Interpreter部分功能，请先点击[设置参数](/#/settings?openaiUrl=https://chat.chatify.me&token=sk-ed7a02c0991f2a957aea4a474e61e5e37d0adcc7c1f0c40e)",
+        date: "",
+      },
+      {
+        id: "CI-1",
+        role: "system",
+        content:
+          "/upload",
+        date: "",
+      },
+    ],
+    modelConfig: {
+      model: "gpt-3.5-turbo",
+      temperature: 1,
+      max_tokens: 2000,
+      presence_penalty: 0,
+      frequency_penalty: 0,
+      sendMemory: true,
+      historyMessageCount: 4,
+      compressMessageLengthThreshold: 1000,
+    },
+    lang: "cn",
+    builtin: true,
+    createdAt: 1688899480541,
+  },
 ];
