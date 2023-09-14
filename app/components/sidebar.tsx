@@ -172,7 +172,6 @@ export function SideBar(props: { className?: string }) {
             </a>
           </div>
           <div className={styles["sidebar-action"]}>
-            <a title="Code Interpreter">
             <IconButton
               icon={<DragIcon />}
               shadow
