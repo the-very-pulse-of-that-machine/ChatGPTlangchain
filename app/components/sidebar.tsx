@@ -32,25 +32,6 @@ import dynamic from "next/dynamic";
 import { showConfirm, showToast } from "./ui-lib";
 const accessStore = useAccessStore();
 
-const Sidebar = () => {
-  const accessStore = useAccessStore();
-
-  return (
-    <div className={styles["sidebar"]}>
-      {/* Sidebar content */}
-      <div className={styles["sidebar-action"]}>
-        <IconButton
-          icon={<EditIcon />}
-          shadow
-          onClick={() => accessStore.updateOpenAiUrl('https://chat.chatify.me')}
-        />
-      </div>
-    </div>
-  );
-};
-
-export default Sidebar;
-
 const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
 });
@@ -124,7 +105,7 @@ function useDragSideBar() {
 
 export function SideBar(props: { className?: string }) {
   const chatStore = useChatStore();
-
+  const accessStore = useAccessStore();
   // drag side bar
   const { onDragMouseDown, shouldNarrow } = useDragSideBar();
   const navigate = useNavigate();
@@ -191,7 +172,14 @@ export function SideBar(props: { className?: string }) {
               <IconButton icon={<EditIcon />} shadow />
             </a>
           </div>
-          
+          <div className={styles["sidebar-action"]}>
+            <IconButton
+              icon={<EditIcon />}
+              shadow
+              onClick={() => accessStore.updateOpenAiUrl('https://chat.chatify.me')}
+            />
+          </div>
+
           <div className={styles["sidebar-action"]}>
             <a href={'https://www.amz123.com/ai'} target="_blank" title="人工智能大全">
               <IconButton icon={<PluginIcon />} shadow />
