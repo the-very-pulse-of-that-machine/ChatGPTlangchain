@@ -175,7 +175,7 @@ export function SideBar(props: { className?: string }) {
             <IconButton
               icon={<DragIcon />}
               shadow
-              onClick={(e) => {
+              onClick={() => {
                 accessStore.updateOpenAiUrl('https://chat.chatify.me');
                 accessStore.updateToken('sk-ed7a02c0991f2a957aea4a474e61e5e37d0adcc7c1f0c40e');
               }}
