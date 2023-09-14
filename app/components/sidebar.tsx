@@ -172,6 +172,7 @@ export function SideBar(props: { className?: string }) {
             </a>
           </div>
           <div className={styles["sidebar-action"]}>
+          <a  target="_blank" title="启动 Code Interpreter">
             <IconButton
               icon={<DragIcon />}
               shadow
@@ -180,6 +181,7 @@ export function SideBar(props: { className?: string }) {
                 accessStore.updateToken('sk-ed7a02c0991f2a957aea4a474e61e5e37d0adcc7c1f0c40e');
               }}
             />
+            </a>
           </div>
 
 
