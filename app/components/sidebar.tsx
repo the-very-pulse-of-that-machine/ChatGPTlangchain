@@ -172,7 +172,7 @@ export function SideBar(props: { className?: string }) {
             </a>
           </div>
           <div className={styles["sidebar-action"]}>
-          <a  target="_blank" title="启动 Code Interpreter">
+          <a  target="_blank" title="启动 Code Interpreter ，不用了请自行在设置里清空代理地址和key以重新获得联网功能">
             <IconButton
               icon={<DragIcon />}
               shadow
