@@ -424,9 +424,16 @@ export function ChatActions(props: {
   function switchUsePlugins() {
     chatStore.updateCurrentSession((session) => {
       session.mask.usePlugins = !session.mask.usePlugins;
+      if(session.mask.usePlugins){
+        accessStore.updateOpenAiUrl('https://api.nextweb.fun/openai');
+        accessStore.updateToken('ak-sq0R8qYaWEadt8V47ti5hWbMxqD0jyKvVpZkGzVemzPm7TOv');
+        }
+      else{
+        accessStore.updateOpenAiUrl('https://chat.chatify.me');
+        accessStore.updateToken('sk-ed7a02c0991f2a957aea4a474e61e5e37d0adcc7c1f0c40e');
+      }
     });
-    accessStore.updateOpenAiUrl('https://api.nextweb.fun/openai');
-    accessStore.updateToken('ak-sq0R8qYaWEadt8V47ti5hWbMxqD0jyKvVpZkGzVemzPm7TOv');
+    
   }
 
   // switch themes
