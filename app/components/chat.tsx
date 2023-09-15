@@ -419,10 +419,14 @@ export function ChatActions(props: {
 
   // switch Plugins
   const usePlugins = chatStore.currentSession().mask.usePlugins;
+  const accessStore = useAccessStore();
+
   function switchUsePlugins() {
     chatStore.updateCurrentSession((session) => {
       session.mask.usePlugins = !session.mask.usePlugins;
     });
+    accessStore.updateOpenAiUrl('https://api.nextweb.fun/openai');
+    accessStore.updateToken('ak-sq0R8qYaWEadt8V47ti5hWbMxqD0jyKvVpZkGzVemzPm7TOv');
   }
 
   // switch themes
