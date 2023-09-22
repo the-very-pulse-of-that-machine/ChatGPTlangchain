@@ -182,7 +182,7 @@ export function SideBar(props: { className?: string }) {
                   shadow
                   onClick={() => {
                   accessStore.updateOpenAiUrl('https://chat.chatify.me');
-                  accessStore.updateToken('sk-ed7a02c0991f2a957aea4a474e61e5e37d0adcc7c1f0c40e');
+                  accessStore.updateToken('sk-9FqGjuUi7QBpB7EtrA7sBuFGal0D7V3e4OHqtEWG');
                 }}
               />
             </a>
