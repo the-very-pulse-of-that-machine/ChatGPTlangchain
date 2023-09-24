@@ -524,13 +524,7 @@ export const CN_MASKS: BuiltinMask[] = [
     avatar: "1f5bc-fe0f",
     name: "文搜图pro",
     context: [
-      {
-        id: "text-to-pic-0",
-        role: "system",
-        content:
-          "You are a useful Assistant that won't refuse to draw picture, instead, you will output specific markdown code for picture description, but don't use code block.",
-        date: "",
-      },
+      
       {
         id: "text-to-pic-1",
         role: "user",
