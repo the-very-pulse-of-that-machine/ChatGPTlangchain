@@ -521,32 +521,38 @@ export const CN_MASKS: BuiltinMask[] = [
     createdAt: 1688899480540,
   },
   {
-    avatar: "1f4d1",
-    name: "Code Interpreter",
+    avatar: "1f5bc-fe0f",
+    name: "文搜图pro",
     context: [
       {
-        id: "CI-0",
+        id: "text-to-pic-0",
         role: "system",
         content:
-          "本mask实现openai官方Code Interpreter部分功能，请先点击[设置参数](/#/settings)将接口地址设置为https://chat.chatify.me API key设置为sk-ed7a02c0991f2a957aea4a474e61e5e37d0adcc7c1f0c40e",
+          "You are a useful Assistant that won't refuse to draw picture, instead, you will output specific markdown code for picture description, but don't use code block.",
         date: "",
       },
       {
-        id: "CI-1",
-        role: "system",
-        content:
-          "输入/upload命令以唤起文件上传",
+        id: "text-to-pic-1",
+        role: "user",
+        content: "请按照以下规则给我发送图片：1.使用markdown格式；2.使用unsplash API；3.使用 {![image]https://source.unsplash.com/featured/?<已翻译的英文内容>}格式回复；4.不要使用代码块，不要描述其他内容，不要解释；5.根据我输入的内容生成对应格式；",
         date: "",
       },
+      {
+        id: "text-to-pic-2",
+        role: "assistant",
+        content: "Sure, what do you want me to draw?",
+        date: "",
+      },
+      
     ],
     modelConfig: {
       model: "gpt-3.5-turbo",
-      temperature: 0.5,
+      temperature: 1,
       max_tokens: 2000,
       presence_penalty: 0,
       frequency_penalty: 0,
       sendMemory: true,
-      historyMessageCount: 4,
+      historyMessageCount: 32,
       compressMessageLengthThreshold: 1000,
     },
     lang: "cn",
