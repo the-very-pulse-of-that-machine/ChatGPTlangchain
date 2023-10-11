@@ -5,24 +5,22 @@ import { auth } from "../../../auth";
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { BaseCallbackHandler } from "langchain/callbacks";
 
-import {
-  BingSerpAPI,
-  DynamicTool,
-  RequestsGetTool,
-  RequestsPostTool,
-  Tool,
-} from "langchain/tools";
 import { AIMessage, HumanMessage, SystemMessage } from "langchain/schema";
 import { BufferMemory, ChatMessageHistory } from "langchain/memory";
 import { initializeAgentExecutorWithOptions } from "langchain/agents";
-import { SerpAPI } from "langchain/tools";
-import { Calculator } from "langchain/tools/calculator";
-import { DuckDuckGo } from "@/app/api/langchain-tools/duckduckgo_search";
-import { HttpGetTool } from "@/app/api/langchain-tools/http_get";
 import { ACCESS_CODE_PREFIX } from "@/app/constant";
 import { OpenAI } from "langchain/llms/openai";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+
+import * as langchainTools from "langchain/tools";
+import { HttpGetTool } from "@/app/api/langchain-tools/http_get";
+import { DuckDuckGo } from "@/app/api/langchain-tools/duckduckgo_search";
 import { WebBrowser } from "langchain/tools/webbrowser";
+import { Calculator } from "langchain/tools/calculator";
+import { DynamicTool, Tool } from "langchain/tools";
+import { DallEAPIWrapper } from "@/app/api/langchain-tools/dalle_image_generator";
+import { BaiduSearch } from "@/app/api/langchain-tools/baidu_search";
+import { GoogleSearch } from "@/app/api/langchain-tools/google_search";
 
 const serverConfig = getServerSideConfig();
 
@@ -76,6 +74,7 @@ async function handle(req: NextRequest) {
     const authToken = req.headers.get("Authorization") ?? "";
     const token = authToken.trim().replaceAll("Bearer ", "").trim();
     const isOpenAiKey = !token.startsWith(ACCESS_CODE_PREFIX);
+    let useTools = reqBody.useTools ?? [];
     let apiKey = serverConfig.apiKey;
     if (isOpenAiKey && token) {
       apiKey = token;
@@ -176,15 +175,30 @@ async function handle(req: NextRequest) {
     });
 
     let searchTool: Tool = new DuckDuckGo();
+    if (process.env.CHOOSE_SEARCH_ENGINE) {
+      switch (process.env.CHOOSE_SEARCH_ENGINE) {
+        case "google":
+          searchTool = new GoogleSearch();
+          break;
+        case "baidu":
+          searchTool = new BaiduSearch();
+          break;
+      }
+    }
     if (process.env.BING_SEARCH_API_KEY) {
-      let bingSearchTool = new BingSerpAPI(process.env.BING_SEARCH_API_KEY);
+      let bingSearchTool = new langchainTools["BingSerpAPI"](
+        process.env.BING_SEARCH_API_KEY,
+      );
       searchTool = new DynamicTool({
         name: "bing_search",
         description: bingSearchTool.description,
         func: async (input: string) => bingSearchTool.call(input),
       });
-    } else if (process.env.SERPAPI_API_KEY) {
-      let serpAPITool = new SerpAPI(process.env.SERPAPI_API_KEY);
+    }
+    if (process.env.SERPAPI_API_KEY) {
+      let serpAPITool = new langchainTools["SerpAPI"](
+        process.env.SERPAPI_API_KEY,
+      );
       searchTool = new DynamicTool({
         name: "google_search",
         description: serpAPITool.description,
@@ -213,11 +227,22 @@ async function handle(req: NextRequest) {
     ];
     const webBrowserTool = new WebBrowser({ model, embeddings });
     const calculatorTool = new Calculator();
-    if (reqBody.useTools.includes("web-search")) tools.push(searchTool);
-    if (reqBody.useTools.includes(webBrowserTool.name))
-      tools.push(webBrowserTool);
-    if (reqBody.useTools.includes(calculatorTool.name))
-      tools.push(calculatorTool);
+    const dallEAPITool = new DallEAPIWrapper(apiKey, baseUrl);
+    if (useTools.includes("web-search")) tools.push(searchTool);
+    if (useTools.includes(webBrowserTool.name)) tools.push(webBrowserTool);
+    if (useTools.includes(calculatorTool.name)) tools.push(calculatorTool);
+    if (useTools.includes(dallEAPITool.name)) tools.push(dallEAPITool);
+
+    useTools.forEach((toolName) => {
+      if (toolName) {
+        var tool = langchainTools[
+          toolName as keyof typeof langchainTools
+        ] as any;
+        if (tool) {
+          tools.push(new tool());
+        }
+      }
+    });
 
     const pastMessages = new Array();
 

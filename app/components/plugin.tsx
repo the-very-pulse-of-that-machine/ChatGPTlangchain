@@ -297,7 +297,9 @@ export function PluginPage() {
 
   const allPlugins = pluginStore
     .getAll()
-    .filter((m) => !getLang() || m.lang === getLang());
+    .filter(
+      (m) => !getLang() || m.lang === (getLang() == "cn" ? getLang() : "en"),
+    );
 
   const [searchPlugins, setSearchPlugins] = useState<Plugin[]>([]);
   const [searchText, setSearchText] = useState("");
@@ -421,7 +423,6 @@ export function PluginPage() {
                     </div>
                   </div>
                 </div>
-                {/* 操作按钮 */}
                 <div className={styles["plugin-actions"]}>
                   <input
                     type="checkbox"
