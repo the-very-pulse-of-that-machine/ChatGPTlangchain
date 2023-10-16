@@ -419,21 +419,10 @@ export function ChatActions(props: {
 
   // switch Plugins
   const usePlugins = chatStore.currentSession().mask.usePlugins;
-  const accessStore = useAccessStore();
-
   function switchUsePlugins() {
     chatStore.updateCurrentSession((session) => {
       session.mask.usePlugins = !session.mask.usePlugins;
-      if(session.mask.usePlugins){
-        //accessStore.updateOpenAiUrl('https://api.nextweb.fun/openai');
-        //accessStore.updateToken('ak-sq0R8qYaWEadt8V47ti5hWbMxqD0jyKvVpZkGzVemzPm7TOv');
-        }
-      else{
-        //accessStore.updateOpenAiUrl('https://chat.chatify.me');
-        //accessStore.updateToken('sk-ZFJMXT9UMwR5iqwg0iURdTmU3NUpesVkixPtiQX3');
-      }
     });
-    
   }
 
   // switch themes
@@ -523,17 +512,18 @@ export function ChatActions(props: {
           icon={<RobotIcon />}
         />
 
-        {config.pluginConfig.enable && !/03\d{2}$/.test(currentModel) && (
-          <ChatAction
-            onClick={switchUsePlugins}
-            text={
-              usePlugins
-                ? Locale.Chat.InputActions.DisablePlugins
-                : Locale.Chat.InputActions.EnablePlugins
-            }
-            icon={usePlugins ? <EnablePluginIcon /> : <DisablePluginIcon />}
-          />
-        )}
+        {config.pluginConfig.enable &&
+          /^gpt(?!.*03\d{2}$).*$/.test(currentModel) && (
+            <ChatAction
+              onClick={switchUsePlugins}
+              text={
+                usePlugins
+                  ? Locale.Chat.InputActions.DisablePlugins
+                  : Locale.Chat.InputActions.EnablePlugins
+              }
+              icon={usePlugins ? <EnablePluginIcon /> : <DisablePluginIcon />}
+            />
+          )}
 
         {showModelSelector && (
           <Selector
@@ -548,7 +538,7 @@ export function ChatActions(props: {
               chatStore.updateCurrentSession((session) => {
                 session.mask.modelConfig.model = s[0] as ModelType;
                 session.mask.syncGlobalConfig = false;
-                session.mask.usePlugins = !/03\d{2}$/.test(
+                session.mask.usePlugins = /^gpt(?!.*03\d{2}$).*$/.test(
                   session.mask.modelConfig.model,
                 );
               });
@@ -977,7 +967,7 @@ function _Chat() {
     const isTouchTopEdge = e.scrollTop <= edgeThreshold;
     const isTouchBottomEdge = bottomHeight >= e.scrollHeight - edgeThreshold;
     const isHitBottom =
-      bottomHeight >= e.scrollHeight - (isMobileScreen ? 0 : 10);
+      bottomHeight >= e.scrollHeight - (isMobileScreen ? 4 : 10);
 
     const prevPageMsgIndex = msgRenderIndex - CHAT_PAGE_SIZE;
     const nextPageMsgIndex = msgRenderIndex + CHAT_PAGE_SIZE;
@@ -1195,7 +1185,13 @@ function _Chat() {
                       {isUser ? (
                         <Avatar avatar={config.avatar} />
                       ) : (
-                        <MaskAvatar mask={session.mask} />
+                        <>
+                          {["system"].includes(message.role) ? (
+                            <Avatar avatar="2699-fe0f" />
+                          ) : (
+                            <MaskAvatar mask={session.mask} />
+                          )}
+                        </>
                       )}
                     </div>
 
