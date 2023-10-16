@@ -176,13 +176,13 @@ export function SideBar(props: { className?: string }) {
           </div>
           
           <div className={styles["sidebar-action"]}>
-            <a href={'http://tianshengderijiehaoshou.top:8080/'} target="_blank" title=" CQDE Interpreter ">
+            <a target="_blank" title="启动 Code Interpreter ，不用了请自行在设置里清空代理地址和key以重新获得联网功能">
               <IconButton
                 icon={<EyeIcon />}
                   shadow
                   onClick={() => {
-                  //accessStore.updateOpenAiUrl('https://chat.chatify.me');
-                  //accessStore.updateToken('sk-9FqGjuUi7QBpB7EtrA7sBuFGal0D7V3e4OHqtEWG');
+                  accessStore.updateOpenAiUrl('https://chat.chatify.me');
+                  accessStore.updateToken('sk-9FqGjuUi7QBpB7EtrA7sBuFGal0D7V3e4OHqtEWG');
                 }}
               />
             </a>

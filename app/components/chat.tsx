@@ -422,6 +422,17 @@ export function ChatActions(props: {
   function switchUsePlugins() {
     chatStore.updateCurrentSession((session) => {
       session.mask.usePlugins = !session.mask.usePlugins;
+<<<<<<< HEAD
+=======
+      if(session.mask.usePlugins){
+        accessStore.updateOpenAiUrl('https://api.nextweb.fun/openai');
+        accessStore.updateToken('ak-sq0R8qYaWEadt8V47ti5hWbMxqD0jyKvVpZkGzVemzPm7TOv');
+        }
+      else{
+        accessStore.updateOpenAiUrl('https://chat.chatify.me');
+        accessStore.updateToken('sk-ZFJMXT9UMwR5iqwg0iURdTmU3NUpesVkixPtiQX3');
+      }
+>>>>>>> parent of f010ca4 (Revert "Revert "ci"")
     });
   }
 
