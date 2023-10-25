@@ -10,7 +10,7 @@ interface Commands {
   code?: Command;
   settings?: Command;
 }
-
+//change
 export function useCommand(commands: Commands = {}) {
   const [searchParams, setSearchParams] = useSearchParams();
 
