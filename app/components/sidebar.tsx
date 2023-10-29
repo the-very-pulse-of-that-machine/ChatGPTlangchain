@@ -189,7 +189,7 @@ export function SideBar(props: { className?: string }) {
           </div>
 
           <div className={styles["sidebar-action"]}>
-            <a href={'https://www.amz123.com/ai'} target="_blank" title="人工智能大全">
+            <a href={'http://111.229.113.222:5173/'} target="_blank" title="Xagent">
               <IconButton icon={<PluginIcon />} shadow />
             </a>
           </div>
