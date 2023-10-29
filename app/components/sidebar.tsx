@@ -176,7 +176,7 @@ export function SideBar(props: { className?: string }) {
           </div>
           
           <div className={styles["sidebar-action"]}>
-            <a href={'http://111.229.113.222:8080/'} target="_blank" title=" CQDE Interpreter ">
+            <a href={'http://111.229.113.222:8081/'} target="_blank" title=" CQDE Interpreter ">
               <IconButton
                 icon={<EyeIcon />}
                   shadow
